@@ -4,7 +4,8 @@ Hack@Brown 2018 Submission
 ARrg photos is an exploration of viewing images in AR, comprised of two smaller projects, TourAR and Egg
 
 [![ARrg, Photos!](https://img.youtube.com/vi/430MjjQhaqw/0.jpg)](https://www.youtube.com/watch?v=430MjjQhaqw&feature=youtu.be)
-
+### Team members:
+Gabriela Asuncion, Zhizhong (Isaac) Chen, Jessica Cheng, Nomin Khishigsuren, Juan David Lizarazo
 ## TourAR
 ### About
 TourAR allows users to walk through Providence in a new way.  It maps images from four locations in Providence (Downtown, RISD, Main Green, and Barus and Holley) into arrays of images spread in a 3D space the size of Sayles Hall.
@@ -20,4 +21,4 @@ Using Python we looped through different latitude and longitude values and which
 ### About
 Egg 
 ### Process
-We created Egg using 2,000 white images which were placed
+We created Egg using 2,000 white images which were placed 

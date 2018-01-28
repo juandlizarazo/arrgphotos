@@ -14,11 +14,13 @@ We created TourAR using Google Streetview API, Google Static Maps API, Three.js,
 
 Using Python we looped through different latitude and longitude values and which we set as parameters in requests to Google Streetview API. The images returned by the request were saved and used in the AR. We plotted the positions of each image as markers on a satellite map using Google Static Maps API.
 
+For using webAR we first tried hard to understand the examples that were given to us. Then we tried rendering a single image (image.html), and this we found we could simply do by rendering a mesh with a texture taken from the image. After that we tried putting a panel (panel 16.html). After that we put in little groups for the four points of interest. And finally we found it cool if above each group we had a little title for the region being looked at. Oh, and we also randomized the positions of the images so that they would look more artsy!
+
 ![](markers.png)
 
 
 ## Egg
 ### About
-Egg explores the effects of density and spherical object distribution surrounding a central image of interest. It uses 2,000 white images which we placed around a Hack@Brown logo.
+Our city tour didn't make webAR stutter so we decided to test a bit more its limits. We wanted to see how many images we could render. If we tried rendering 2048 images 500 x 500 px, it just refused to do it. Then we decided to render just single color tiles, 2048 of them, in a little swarm, in which center a special image was to be found! Like a treasure hunt! Look at egg.html to see our code. To render the cloud of points we used Mathematica to render a distribution whose density increased towards the special point of interest, and carved a little sphere surrounding it so that the special image would feature well.
 ### Process
 

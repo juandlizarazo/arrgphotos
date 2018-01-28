@@ -3,7 +3,7 @@ Hack@Brown 2018 Submission
 
 ARrg photos is an exploration of viewing images in AR, comprised of two smaller projects, TourAR and Egg.
 
-[![ARrg, Photos!](https://img.youtube.com/vi/430MjjQhaqw/0.jpg)](https://www.youtube.com/watch?v=430MjjQhaqw&feature=youtu.be)
+[![ARrg, Photos!](https://img.youtube.com/vi/UVQbwMsFt4c/0.jpg)](https://www.youtube.com/watch?v=UVQbwMsFt4c&feature=youtu.be)
 ## Team members:
 
 + [Gabriela Asuncion](https://github.com/gabbyasuncion)

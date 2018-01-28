@@ -8,9 +8,9 @@ ARrg photos is an exploration of viewing images in AR, comprised of two smaller 
 
 + [Gabriela Asuncion](https://github.com/gabbyasuncion)
 + [Zhizhong (Isaac) Chen](https://github.com/isaacvictor)
-+ [Jessica Cheng] (https://github.com/jlcheng29)
-+ [Nomin Khishigsuren] (https://github.com/nkhishig)
-+ [Juan David Lizarazo] (https://github.com/juandlizarazo/)
++ [Jessica Cheng](https://github.com/jlcheng29)
++ [Nomin Khishigsuren](https://github.com/nkhishig)
++ [Juan David Lizarazo](https://github.com/juandlizarazo/)
 
 ## TourAR
 

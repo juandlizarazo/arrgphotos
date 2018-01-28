@@ -1,12 +1,19 @@
 # ARrg photos
 Hack@Brown 2018 Submission
 
-ARrg photos is an exploration of viewing images in AR, comprised of two smaller projects, TourAR and Egg
+ARrg photos is an exploration of viewing images in AR, comprised of two smaller projects, TourAR and Egg.
 
 [![ARrg, Photos!](https://img.youtube.com/vi/430MjjQhaqw/0.jpg)](https://www.youtube.com/watch?v=430MjjQhaqw&feature=youtu.be)
-### Team members:
-Gabriela Asuncion, Zhizhong (Isaac) Chen, Jessica Cheng, Nomin Khishigsuren, Juan David Lizarazo
+## Team members:
+
++ [Gabriela Asuncion](https://github.com/gabbyasuncion)
++ [Zhizhong (Isaac) Chen](https://github.com/isaacvictor)
++ [Jessica Cheng] (https://github.com/jlcheng29)
++ [Nomin Khishigsuren] (https://github.com/nkhishig)
++ [Juan David Lizarazo] (https://github.com/juandlizarazo/)
+
 ## TourAR
+
 ### About
 TourAR allows users to walk through Providence in a new way.  It maps images from four locations in Providence (Downtown, RISD, Main Green, and Barus and Holley) into arrays of images spread in a 3D space the size of Sayles Hall.
 ### Process
@@ -22,5 +29,4 @@ For using webAR we first tried hard to understand the examples that were given t
 ## Egg
 ### About
 Our city tour didn't make webAR stutter so we decided to test a bit more its limits. We wanted to see how many images we could render. If we tried rendering 2048 images 500 x 500 px, it just refused to do it. Then we decided to render just single color tiles, 2048 of them, in a little swarm, in which center a special image was to be found! Like a treasure hunt! Look at egg.html to see our code. To render the cloud of points we used Mathematica to render a distribution whose density increased towards the special point of interest, and carved a little sphere surrounding it so that the special image would feature well.
-### Process
 

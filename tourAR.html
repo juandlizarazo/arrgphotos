@@ -1,0 +1,686 @@
+<!--
+/*
+ * Copyright 2017 Google Inc. All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>three.ar.js - Single</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no,
+  minimum-scale=1.0, maximum-scale=1.0">
+  <style>
+    body {
+      font-family: monospace;
+      margin: 0;
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+    #info {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 0);
+      margin: 1em;
+      z-index: 10;
+      display: block;
+      line-height: 2em;
+      text-align: center;
+    }
+    #info * {
+      color: #fff;
+    }
+    .title {
+      background-color: rgba(40, 40, 40, 0.4);
+      padding: 0.4em 0.6em;
+      border-radius: 0.1em;
+    }
+    .links {
+      background-color: rgba(40, 40, 40, 0.6);
+      padding: 0.4em 0.6em;
+      border-radius: 0.1em;
+    }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+<div id="info">
+    <span class="title">TourAR</span><br/>
+    <span class="links">
+      <a href="https://github.com/google-ar/three.ar.js">three.ar.js</a>
+    </span>
+    
+</div>
+<script src="./third_party/three.js/three.js"></script>
+<script src="./third_party/three.js/VRControls.js"></script>
+<script src="./third_party/three.ar.js"></script>
+<script>
+
+var vrDisplay, vrControls, arView;
+var canvas, camera, scene, renderer;
+var BOX_DISTANCE = 5.0;
+var BOX_SIZE = 0.25;
+var IMAGE_SIZE = 0.40; // Image size
+var imagesAdded = false;
+var IMAGE_DISTANCE = 1.0;
+
+var plane1;
+var plane2;
+var plane3;
+var plane4;
+var plane5;
+var plane6;
+var plane7;
+var plane8;
+var plane9;
+var plane10;
+var plane11;
+var plane12;
+var plane13;
+var plane14;
+var plane15;
+var plane16;
+var plane17;
+var plane18;
+var plane19;
+var plane20;
+var plane21;
+var plane22;
+var plane23;
+var plane24;
+var plane25;
+var plane26;
+var plane27;
+var plane28;
+var plane29;
+var plane30;
+var plane31;
+var plane32;
+var plane33;
+var plane34;
+var plane35;
+var plane36;
+var plane37;
+var plane38;
+var plane39;
+var plane40;
+var plane41;
+var plane42;
+var plane43;
+var plane44;
+var plane45;
+var plane46;
+var plane47;
+var plane48;
+var plane49;
+var plane50;
+var plane51;
+var plane52;
+var plane53;
+var plane54;
+var plane55;
+var plane56;
+var plane57;
+var plane58;
+var plane59;
+var plane60;
+var plane61;
+var plane62;
+var plane63;
+var plane64;
+var plane65;
+var plane66;
+var plane67;
+var plane68;
+var plane69;
+
+// function loadImage(){
+// 
+// }
+
+/**
+ * Use the `getARDisplay()` utility to leverage the WebVR API
+ * to see if there are any AR-capable WebVR VRDisplays. Returns
+ * a valid display if found. Otherwise, display the unsupported
+ * browser message.
+ */
+THREE.ARUtils.getARDisplay().then(function (display) {
+  if (display) {
+    vrDisplay = display;
+    init();
+  } else {
+    THREE.ARUtils.displayUnsupportedMessage();
+  }
+});
+
+function init() {
+  // Setup the three.js rendering environment
+  renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.autoClear = false;
+  canvas = renderer.domElement;
+  document.body.appendChild(canvas);
+  scene = new THREE.Scene();
+
+  // Creating the ARView, which is the object that handles
+  // the rendering of the camera stream behind the three.js
+  // scene
+  arView = new THREE.ARView(vrDisplay, renderer);
+
+  // The ARPerspectiveCamera is very similar to THREE.PerspectiveCamera,
+  // except when using an AR-capable browser, the camera uses
+  // the projection matrix provided from the device, so that the
+  // perspective camera's depth planes and field of view matches
+  // the physical camera on the device.
+  camera = new THREE.ARPerspectiveCamera(
+    vrDisplay,
+    60,
+    window.innerWidth / window.innerHeight,
+    vrDisplay.depthNear,
+    vrDisplay.depthFar
+  );
+
+  // VRControls is a utility from three.js that applies the device's
+  // orientation/position to the perspective camera, keeping our
+  // real world and virtual world in sync.
+  vrControls = new THREE.VRControls(camera);
+
+  // Bind our event handlers
+  window.addEventListener('resize', onWindowResize, false);
+  
+  /// --- insert all images here
+  
+var img1 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img1.jpg'),transparent: false, side: THREE.DoubleSide});
+    img1.map.needsUpdate = true;
+    plane1 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img1);
+    plane1.overdraw = true;
+    plane1.position.set(-3.98387,-1.54684,-4.20168)
+    scene.add(plane1);
+var img2 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img2.jpg'),transparent: false, side: THREE.DoubleSide});
+    img2.map.needsUpdate = true;
+    plane2 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img2);
+    plane2.overdraw = true;
+    plane2.position.set(-4.07486,-0.785014,-4.00239)
+    scene.add(plane2);
+var img3 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img3.jpg'),transparent: false, side: THREE.DoubleSide});
+    img3.map.needsUpdate = true;
+    plane3 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img3);
+    plane3.overdraw = true;
+    plane3.position.set(-3.92443,-0.132994,-4.1473)
+    scene.add(plane3);
+var img4 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img4.jpg'),transparent: false, side: THREE.DoubleSide});
+    img4.map.needsUpdate = true;
+    plane4 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img4);
+    plane4.overdraw = true;
+    plane4.position.set(-3.98271,0.452076,-4.1026)
+    scene.add(plane4);
+var img5 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img5.jpg'),transparent: false, side: THREE.DoubleSide});
+    img5.map.needsUpdate = true;
+    plane5 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img5);
+    plane5.overdraw = true;
+    plane5.position.set(-3.39105,-1.44497,-4.10005)
+    scene.add(plane5);
+var img6 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img6.jpg'),transparent: false, side: THREE.DoubleSide});
+    img6.map.needsUpdate = true;
+    plane6 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img6);
+    plane6.overdraw = true;
+    plane6.position.set(-3.25727,-0.789995,-4.08211)
+    scene.add(plane6);
+var img7 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img7.jpg'),transparent: false, side: THREE.DoubleSide});
+    img7.map.needsUpdate = true;
+    plane7 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img7);
+    plane7.overdraw = true;
+    plane7.position.set(-3.27721,-0.173098,-4.04023)
+    scene.add(plane7);
+var img8 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img8.jpg'),transparent: false, side: THREE.DoubleSide});
+    img8.map.needsUpdate = true;
+    plane8 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img8);
+    plane8.overdraw = true;
+    plane8.position.set(-3.26296,0.375991,-4.02481)
+    scene.add(plane8);
+var img9 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img9.jpg'),transparent: false, side: THREE.DoubleSide});
+    img9.map.needsUpdate = true;
+    plane9 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img9);
+    plane9.overdraw = true;
+    plane9.position.set(-2.79075,-1.43035,-4.11332)
+    scene.add(plane9);
+var img10 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img10.jpg'),transparent: false, side: THREE.DoubleSide});
+    img10.map.needsUpdate = true;
+    plane10 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img10);
+    plane10.overdraw = true;
+    plane10.position.set(-2.76135,-0.787353,-4.17629)
+    scene.add(plane10);
+var img11 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img11.jpg'),transparent: false, side: THREE.DoubleSide});
+    img11.map.needsUpdate = true;
+    plane11 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img11);
+    plane11.overdraw = true;
+    plane11.position.set(-2.73295,-0.23128,-4.15073)
+    scene.add(plane11);
+var img12 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img12.jpg'),transparent: false, side: THREE.DoubleSide});
+    img12.map.needsUpdate = true;
+    plane12 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img12);
+    plane12.overdraw = true;
+    plane12.position.set(-2.76089,0.533287,-4.26347)
+    scene.add(plane12);
+var img13 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img13.jpg'),transparent: false, side: THREE.DoubleSide});
+    img13.map.needsUpdate = true;
+    plane13 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img13);
+    plane13.overdraw = true;
+    plane13.position.set(-2.05919,-1.47016,-3.98551)
+    scene.add(plane13);
+var img14 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img14.jpg'),transparent: false, side: THREE.DoubleSide});
+    img14.map.needsUpdate = true;
+    plane14 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img14);
+    plane14.overdraw = true;
+    plane14.position.set(-2.0134,-0.873904,-4.01803)
+    scene.add(plane14);
+var img15 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img15.jpg'),transparent: false, side: THREE.DoubleSide});
+    img15.map.needsUpdate = true;
+    plane15 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img15);
+    plane15.overdraw = true;
+    plane15.position.set(-2.1218,-0.1418,-4.04782)
+    scene.add(plane15);
+var img16 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img16.jpg'),transparent: false, side: THREE.DoubleSide});
+    img16.map.needsUpdate = true;
+    plane16 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img16);
+    plane16.overdraw = true;
+    plane16.position.set(-2.04595,0.544675,-4.22378)
+    scene.add(plane16);
+var img17 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img17.jpg'),transparent: false, side: THREE.DoubleSide});
+    img17.map.needsUpdate = true;
+    plane17 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img17);
+    plane17.overdraw = true;
+    plane17.position.set(-2.04633,-1.41352,-2.46261)
+    scene.add(plane17);
+var img18 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img18.jpg'),transparent: false, side: THREE.DoubleSide});
+    img18.map.needsUpdate = true;
+    plane18 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img18);
+    plane18.overdraw = true;
+    plane18.position.set(-1.94472,-0.803613,-2.50131)
+    scene.add(plane18);
+var img19 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img19.jpg'),transparent: false, side: THREE.DoubleSide});
+    img19.map.needsUpdate = true;
+    plane19 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img19);
+    plane19.overdraw = true;
+    plane19.position.set(-2.03938,-0.285041,-2.47079)
+    scene.add(plane19);
+var img20 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img20.jpg'),transparent: false, side: THREE.DoubleSide});
+    img20.map.needsUpdate = true;
+    plane20 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img20);
+    plane20.overdraw = true;
+    plane20.position.set(-1.9829,0.438552,-2.37865)
+    scene.add(plane20);
+var img21 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img21.jpg'),transparent: false, side: THREE.DoubleSide});
+    img21.map.needsUpdate = true;
+    plane21 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img21);
+    plane21.overdraw = true;
+    plane21.position.set(-1.26643,-1.59321,-2.53589)
+    scene.add(plane21);
+var img22 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img22.jpg'),transparent: false, side: THREE.DoubleSide});
+    img22.map.needsUpdate = true;
+    plane22 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img22);
+    plane22.overdraw = true;
+    plane22.position.set(-1.36795,-0.786593,-2.49318)
+    scene.add(plane22);
+var img23 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img23.jpg'),transparent: false, side: THREE.DoubleSide});
+    img23.map.needsUpdate = true;
+    plane23 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img23);
+    plane23.overdraw = true;
+    plane23.position.set(-1.2703,-0.16497,-2.40237)
+    scene.add(plane23);
+var img24 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img24.jpg'),transparent: false, side: THREE.DoubleSide});
+    img24.map.needsUpdate = true;
+    plane24 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img24);
+    plane24.overdraw = true;
+    plane24.position.set(-1.4312,0.36125,-2.38846)
+    scene.add(plane24);
+var img25 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img25.jpg'),transparent: false, side: THREE.DoubleSide});
+    img25.map.needsUpdate = true;
+    plane25 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img25);
+    plane25.overdraw = true;
+    plane25.position.set(-0.652871,-1.51513,-2.48076)
+    scene.add(plane25);
+var img26 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img26.jpg'),transparent: false, side: THREE.DoubleSide});
+    img26.map.needsUpdate = true;
+    plane26 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img26);
+    plane26.overdraw = true;
+    plane26.position.set(-0.717695,-0.752054,-2.51802)
+    scene.add(plane26);
+var img27 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img27.jpg'),transparent: false, side: THREE.DoubleSide});
+    img27.map.needsUpdate = true;
+    plane27 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img27);
+    plane27.overdraw = true;
+    plane27.position.set(-0.692292,-0.209331,-2.32313)
+    scene.add(plane27);
+var img28 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img28.jpg'),transparent: false, side: THREE.DoubleSide});
+    img28.map.needsUpdate = true;
+    plane28 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img28);
+    plane28.overdraw = true;
+    plane28.position.set(-0.693726,0.441696,-2.50888)
+    scene.add(plane28);
+var img29 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img29.jpg'),transparent: false, side: THREE.DoubleSide});
+    img29.map.needsUpdate = true;
+    plane29 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img29);
+    plane29.overdraw = true;
+    plane29.position.set(-0.0414299,-1.55994,-2.37725)
+    scene.add(plane29);
+var img30 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img30.jpg'),transparent: false, side: THREE.DoubleSide});
+    img30.map.needsUpdate = true;
+    plane30 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img30);
+    plane30.overdraw = true;
+    plane30.position.set(-0.145941,-0.863687,-2.38438)
+    scene.add(plane30);
+var img31 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img31.jpg'),transparent: false, side: THREE.DoubleSide});
+    img31.map.needsUpdate = true;
+    plane31 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img31);
+    plane31.overdraw = true;
+    plane31.position.set(-0.0683055,-0.158345,-2.47738)
+    scene.add(plane31);
+var img32 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img32.jpg'),transparent: false, side: THREE.DoubleSide});
+    img32.map.needsUpdate = true;
+    plane32 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img32);
+    plane32.overdraw = true;
+    plane32.position.set(-0.101466,0.364117,-2.25658)
+    scene.add(plane32);
+var img33 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img33.jpg'),transparent: false, side: THREE.DoubleSide});
+    img33.map.needsUpdate = true;
+    plane33 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img33);
+    plane33.overdraw = true;
+    plane33.position.set(-0.0739426,-1.44926,-20.2859)
+    scene.add(plane33);
+var img34 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img34.jpg'),transparent: false, side: THREE.DoubleSide});
+    img34.map.needsUpdate = true;
+    plane34 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img34);
+    plane34.overdraw = true;
+    plane34.position.set(-0.0121093,-0.876729,-20.3295)
+    scene.add(plane34);
+var img35 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img35.jpg'),transparent: false, side: THREE.DoubleSide});
+    img35.map.needsUpdate = true;
+    plane35 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img35);
+    plane35.overdraw = true;
+    plane35.position.set(-0.0886469,-0.261482,-20.3674)
+    scene.add(plane35);
+var img36 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img36.jpg'),transparent: false, side: THREE.DoubleSide});
+    img36.map.needsUpdate = true;
+    plane36 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img36);
+    plane36.overdraw = true;
+    plane36.position.set(-0.0358052,0.430616,-20.2633)
+    scene.add(plane36);
+var img37 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img37.jpg'),transparent: false, side: THREE.DoubleSide});
+    img37.map.needsUpdate = true;
+    plane37 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img37);
+    plane37.overdraw = true;
+    plane37.position.set(0.613487,-1.45852,-20.4328)
+    scene.add(plane37);
+var img38 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img38.jpg'),transparent: false, side: THREE.DoubleSide});
+    img38.map.needsUpdate = true;
+    plane38 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img38);
+    plane38.overdraw = true;
+    plane38.position.set(0.655145,-0.869413,-20.4379)
+    scene.add(plane38);
+var img39 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img39.jpg'),transparent: false, side: THREE.DoubleSide});
+    img39.map.needsUpdate = true;
+    plane39 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img39);
+    plane39.overdraw = true;
+    plane39.position.set(0.595721,-0.143165,-20.549)
+    scene.add(plane39);
+var img40 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img40.jpg'),transparent: false, side: THREE.DoubleSide});
+    img40.map.needsUpdate = true;
+    plane40 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img40);
+    plane40.overdraw = true;
+    plane40.position.set(0.675059,0.463148,-20.3084)
+    scene.add(plane40);
+var img41 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img41.jpg'),transparent: false, side: THREE.DoubleSide});
+    img41.map.needsUpdate = true;
+    plane41 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img41);
+    plane41.overdraw = true;
+    plane41.position.set(1.35306,-1.42227,-20.4808)
+    scene.add(plane41);
+var img42 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img42.jpg'),transparent: false, side: THREE.DoubleSide});
+    img42.map.needsUpdate = true;
+    plane42 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img42);
+    plane42.overdraw = true;
+    plane42.position.set(1.34638,-0.83058,-20.4487)
+    scene.add(plane42);
+var img43 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img43.jpg'),transparent: false, side: THREE.DoubleSide});
+    img43.map.needsUpdate = true;
+    plane43 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img43);
+    plane43.overdraw = true;
+    plane43.position.set(1.21479,-0.266649,-20.2796)
+    scene.add(plane43);
+var img44 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img44.jpg'),transparent: false, side: THREE.DoubleSide});
+    img44.map.needsUpdate = true;
+    plane44 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img44);
+    plane44.overdraw = true;
+    plane44.position.set(1.27088,0.545659,-20.367)
+    scene.add(plane44);
+var img45 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img45.jpg'),transparent: false, side: THREE.DoubleSide});
+    img45.map.needsUpdate = true;
+    plane45 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img45);
+    plane45.overdraw = true;
+    plane45.position.set(1.89316,-1.40956,-20.3673)
+    scene.add(plane45);
+var img46 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img46.jpg'),transparent: false, side: THREE.DoubleSide});
+    img46.map.needsUpdate = true;
+    plane46 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img46);
+    plane46.overdraw = true;
+    plane46.position.set(1.92164,-0.942347,-20.4723)
+    scene.add(plane46);
+var img47 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img47.jpg'),transparent: false, side: THREE.DoubleSide});
+    img47.map.needsUpdate = true;
+    plane47 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img47);
+    plane47.overdraw = true;
+    plane47.position.set(1.95498,-0.206751,-20.3251)
+    scene.add(plane47);
+var img48 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img48.jpg'),transparent: false, side: THREE.DoubleSide});
+    img48.map.needsUpdate = true;
+    plane48 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img48);
+    plane48.overdraw = true;
+    plane48.position.set(1.9317,0.521155,-20.5446)
+    scene.add(plane48);
+var img49 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img49.jpg'),transparent: false, side: THREE.DoubleSide});
+    img49.map.needsUpdate = true;
+    plane49 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img49);
+    plane49.overdraw = true;
+    plane49.position.set(1.91256,-1.45766,-11.8233)
+    scene.add(plane49);
+var img50 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img50.jpg'),transparent: false, side: THREE.DoubleSide});
+    img50.map.needsUpdate = true;
+    plane50 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img50);
+    plane50.overdraw = true;
+    plane50.position.set(2.0348,-0.890768,-11.7986)
+    scene.add(plane50);
+var img51 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img51.jpg'),transparent: false, side: THREE.DoubleSide});
+    img51.map.needsUpdate = true;
+    plane51 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img51);
+    plane51.overdraw = true;
+    plane51.position.set(2.09972,-0.184571,-11.7065)
+    scene.add(plane51);
+var img52 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img52.jpg'),transparent: false, side: THREE.DoubleSide});
+    img52.map.needsUpdate = true;
+    plane52 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img52);
+    plane52.overdraw = true;
+    plane52.position.set(1.99281,0.54495,-11.6564)
+    scene.add(plane52);
+var img53 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img53.jpg'),transparent: false, side: THREE.DoubleSide});
+    img53.map.needsUpdate = true;
+    plane53 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img53);
+    plane53.overdraw = true;
+    plane53.position.set(2.63551,-1.56422,-11.7251)
+    scene.add(plane53);
+var img54 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img54.jpg'),transparent: false, side: THREE.DoubleSide});
+    img54.map.needsUpdate = true;
+    plane54 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img54);
+    plane54.overdraw = true;
+    plane54.position.set(2.71996,-0.895566,-11.5634)
+    scene.add(plane54);
+var img55 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img55.jpg'),transparent: false, side: THREE.DoubleSide});
+    img55.map.needsUpdate = true;
+    plane55 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img55);
+    plane55.overdraw = true;
+    plane55.position.set(2.74649,-0.162366,-11.7804)
+    scene.add(plane55);
+var img56 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img56.jpg'),transparent: false, side: THREE.DoubleSide});
+    img56.map.needsUpdate = true;
+    plane56 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img56);
+    plane56.overdraw = true;
+    plane56.position.set(2.72825,0.424156,-11.8363)
+    scene.add(plane56);
+var img57 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img57.jpg'),transparent: false, side: THREE.DoubleSide});
+    img57.map.needsUpdate = true;
+    plane57 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img57);
+    plane57.overdraw = true;
+    plane57.position.set(3.35598,-1.40027,-11.6124)
+    scene.add(plane57);
+var img58 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img58.jpg'),transparent: false, side: THREE.DoubleSide});
+    img58.map.needsUpdate = true;
+    plane58 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img58);
+    plane58.overdraw = true;
+    plane58.position.set(3.25745,-0.864431,-11.7615)
+    scene.add(plane58);
+var img59 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img59.jpg'),transparent: false, side: THREE.DoubleSide});
+    img59.map.needsUpdate = true;
+    plane59 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img59);
+    plane59.overdraw = true;
+    plane59.position.set(3.26574,-0.109259,-11.6122)
+    scene.add(plane59);
+var img60 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img60.jpg'),transparent: false, side: THREE.DoubleSide});
+    img60.map.needsUpdate = true;
+    plane60 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img60);
+    plane60.overdraw = true;
+    plane60.position.set(3.30995,0.465673,-11.7729)
+    scene.add(plane60);
+var img61 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img61.jpg'),transparent: false, side: THREE.DoubleSide});
+    img61.map.needsUpdate = true;
+    plane61 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img61);
+    plane61.overdraw = true;
+    plane61.position.set(3.98443,-1.58729,-11.7676)
+    scene.add(plane61);
+var img62 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img62.jpg'),transparent: false, side: THREE.DoubleSide});
+    img62.map.needsUpdate = true;
+    plane62 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img62);
+    plane62.overdraw = true;
+    plane62.position.set(3.86502,-0.859817,-11.8422)
+    scene.add(plane62);
+var img63 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img63.jpg'),transparent: false, side: THREE.DoubleSide});
+    img63.map.needsUpdate = true;
+    plane63 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img63);
+    plane63.overdraw = true;
+    plane63.position.set(3.888,-0.213825,-11.5659)
+    scene.add(plane63);
+var img64 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/img64.jpg'),transparent: false, side: THREE.DoubleSide});
+    img64.map.needsUpdate = true;
+    plane64 = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.5),img64);
+    plane64.overdraw = true;
+    plane64.position.set(3.9103,0.542785,-11.5679)
+    scene.add(plane64);
+
+  /// --- end of image insertion
+  
+  /// --- begin label placement here (group 1 is RISD, group 2 is Downtown, group 3 is Barus & Holley, group 4 is main green
+
+var imglabel1 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/label1.png')});
+    imglabel1.map.needsUpdate = true;
+    plane65 = new THREE.Mesh(new THREE.PlaneGeometry(1.8, 0.5),imglabel1);
+    plane65.overdraw = true;
+    plane65.position.set(-2.175, 1.2, -4.116)
+    scene.add(plane65); 
+
+var imglabel2 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/label2.png')});
+    imglabel2.map.needsUpdate = true;
+    plane66 = new THREE.Mesh(new THREE.PlaneGeometry(3.3, 0.5),imglabel2);
+    plane66.overdraw = true;
+    plane66.position.set(-1.175, 1.2, -2.4)
+    scene.add(plane66); 
+    
+var imglabel3 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/label3.png')});
+    imglabel3.map.needsUpdate = true;
+    plane67 = new THREE.Mesh(new THREE.PlaneGeometry(3.65, 0.5),imglabel3);
+    plane67.overdraw = true;
+    plane67.position.set(0.825, 1.2, -20.4)
+    scene.add(plane67); 
+
+var imglabel4 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/label4.png')});
+    imglabel4.map.needsUpdate = true;
+    plane68 = new THREE.Mesh(new THREE.PlaneGeometry(3.54, 0.5),imglabel4);
+    plane68.overdraw = true;
+    plane68.position.set(2.825, 1.2, -11.7)
+    scene.add(plane68); 
+
+var imglabel5 = new THREE.MeshBasicMaterial({map:THREE.ImageUtils.loadTexture('./assets/imgs/greatpaw.png')});
+    imglabel5.map.needsUpdate = true;
+    plane69 = new THREE.Mesh(new THREE.PlaneGeometry(20.,23.33),imglabel5);
+    plane69.overdraw = true;
+    plane69.position.set(0, 15, -25)
+    scene.add(plane69); 
+
+  /// --- end of label placement
+  
+  //loadImage();
+  // Kick off the render loop!
+  update();
+}
+
+/**
+ * The render loop, called once per frame. Handles updating
+ * our scene and rendering.
+ */
+function update() {
+  // Clears color from the frame before rendering the camera (arView) or scene.
+  renderer.clearColor();
+
+  // Render the device's camera stream on screen first of all.
+  // It allows to get the right pose synchronized with the right frame.
+  arView.render();
+
+  // Update our camera projection matrix in the event that
+  // the near or far planes have updated
+  camera.updateProjectionMatrix();
+
+  // Update our perspective camera's positioning
+  vrControls.update();
+
+  // Render our three.js virtual scene
+  renderer.clearDepth();
+  renderer.render(scene, camera);
+
+  // Kick off the requestAnimationFrame to call this function
+  // when a new VRDisplay frame is rendered
+  vrDisplay.requestAnimationFrame(update);
+}
+
+/**
+ * Once we have position information applied to our camera,
+ * create some boxes at the same height as the camera
+ */
+
+function onWindowResize () {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+</script>
+</body>
+</html>

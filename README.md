@@ -19,6 +19,6 @@ Using Python we looped through different latitude and longitude values and which
 
 ## Egg
 ### About
-Egg explores the effects of density and spherical object distribution surrounding a central image of interest. It uses 2,000 white images which were placed around a Hack@Brown logo.
+Egg explores the effects of density and spherical object distribution surrounding a central image of interest. It uses 2,000 white images which we placed around a Hack@Brown logo.
 ### Process
 

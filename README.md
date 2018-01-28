@@ -11,7 +11,7 @@ We created TourAR using Google Streetview API, Google Static Maps API, Three.js,
 
 Using Python we looped through different latitude and longitude values and which we set as parameters in requests to Google Streetview API. The images returned by the request were saved and used in the AR. We plotted the positions of each image as markers on a satellite map using Google Static Maps API.
 
-![](markers.png | width=100)
+![](markers.png =250x250)
 
 
 
